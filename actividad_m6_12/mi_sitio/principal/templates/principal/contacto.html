@@ -1,34 +1,24 @@
 {% extends 'principal/base.html' %}
 
 {% block content %}
-    <h2>Contáctanos</h2>
+    <h2>Contáctanos (Versión profesional con Django forms)</h2>
     <p>Por favor, llena el siguiente formulario para enviarnos un mensaje.</p>
 
-    {% if mensaje %}
+    {% if mensaje_exito %}
         <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
-            {{ mensaje }}
-        </div>
-    {% endif %}
-    
-    {% if error %}
-        <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
-            {{ error }}
+            {{ mensaje_exito }}
         </div>
     {% endif %}
 
     <form method="POST" action="">
-        {% csrf_token %} <div style="margin-bottom: 15px;">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" style="width: 100%; padding: 5px;">
-        </div>
+        {% csrf_token %}
         
-        <div style="margin-bottom: 15px;">
-            <label for="email">Correo electrónico:</label><br>
-            <input type="email" id="email" name="email" style="width: 100%; padding: 5px;">
-        </div>
+        {{ form.as_p }}
         
-        <button type="submit" style="padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer;">
+        <button type="submit" style="padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer; margin-top: 10px;">
             Enviar Mensaje
         </button>
     </form>
 {% endblock content %}
+
+
