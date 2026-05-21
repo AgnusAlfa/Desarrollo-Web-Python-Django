@@ -1,0 +1,30 @@
+{% extends 'empleos/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0" style="border-top: 4px solid var(--rojo-carmin);">
+            <div class="card-body p-5">
+                <h2 class="fw-bold mb-3" style="color: var(--grafito);">Publicar Aviso de Trabajo</h2>
+                <p class="text-muted mb-4">Completa este formulario con los detalles de tu empresa y la vacante. Nuestro equipo lo revisará y publicará a la brevedad.</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        {% for field in form %}
+                        <div class="col-12">
+                            <label class="form-label fw-bold">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-4 text-end">
+                        <a href="{% url 'inicio' %}" class="btn btn-light me-2">Cancelar</a>
+                        <button type="submit" class="btn btn-rojo px-5">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
