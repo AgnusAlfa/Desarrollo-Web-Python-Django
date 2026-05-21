@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Inicio</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        .panel { background-color: #e9ecef; width: 400px; margin: 0 auto; padding: 20px; border-radius: 10px; }
+        .btn-salir { padding: 10px 20px; background-color: #dc3545; color: white; border: none; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="panel">
+        <h2>¡Bienvenido, {{ request.user.username }}!</h2>
+        <p>Has superado la barrera de seguridad de LoginRequiredMixin.</p>
+        
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-salir">Cerrar Sesión</button>
+        </form>
+    </div>
+
+</body>
+</html>
