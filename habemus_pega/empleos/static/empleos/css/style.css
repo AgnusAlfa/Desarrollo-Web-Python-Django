@@ -647,3 +647,466 @@ body {
 }
 
 .btn-habemus-search:hover { background-color: #B91C1C !important; }
+
+
+/* =========================================
+   BLOQUE 2: CARRUSEL DE EMPRESAS (8 MARCAS REALES)
+   ========================================= */
+.companies-section {
+    background-color: white; 
+    padding: 70px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--borde-suave);
+    overflow: hidden; 
+}
+
+.companies-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.companies-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--grafito);
+    margin-bottom: 50px; 
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* --- EL CARRUSEL --- */
+.companies-carousel-outer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.companies-carousel-track {
+    display: flex;
+    align-items: center;
+    width: max-content; /* Se ajusta automáticamente al contenido */
+    gap: 30px; /* Separación entre tarjetas */
+    padding: 10px 0;
+    animation: scrollCompanies 30s linear infinite;
+    cursor: grab;
+}
+
+/* Animación: Mueve exactamente el ancho de 8 tarjetas + sus 8 espacios (190px * 8 = 1520px) */
+@keyframes scrollCompanies {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-190px * 8)); } 
+}
+
+.companies-carousel-outer:hover .companies-carousel-track {
+    animation-play-state: paused;
+}
+
+/* --- ESTILO DE TARJETAS (Actualizado: Full Color) --- */
+.company-card {
+    background: white;
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    width: 160px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+    /* Mantenemos el movimiento y la sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0; 
+    cursor: pointer;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    border-color: #CBD5E0;
+}
+
+/* El logo a color completo desde el inicio */
+.company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* QUITAMOS EL FILTRO GRIS Y OPACIDAD */
+    opacity: 1; 
+}
+
+/* --- ESTILOS PARA EL BOTÓN DE EMPRESAS (DISTANCIA CORREGIDA) --- */
+
+.companies-action-wrapper {
+    margin-top: -10px; /* Margen negativo para acercarlo al máximo ignorando el padding del carrusel */
+    text-align: center; 
+}
+
+/* El botón nace Rojo Carmín */
+.btn-habemus-secondary {
+    background-color: var(--rojo-carmin); 
+    color: white;
+    border: none;
+    border-radius: 50px; 
+    padding: 12px 30px; 
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none; 
+    display: inline-block; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Al pasar el mouse, cambia al color Grafito */
+.btn-habemus-secondary:hover {
+    background-color: var(--grafito); 
+    transform: translateY(-2px); 
+}
+
+/* =========================================
+   BLOQUE 3: BENEFICIOS Y PROPUESTA DE VALOR
+   ========================================= */
+.benefits-section {
+    background-color: #F8FAFC; /* Un gris ultra sutil para separar secciones */
+    padding: 80px 20px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.benefits-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px; /* Separación entre el texto y la foto */
+}
+
+.benefits-content {
+    flex: 1; /* Toma la mitad del espacio */
+}
+
+.benefits-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: var(--grafito);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.benefits-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #4A5568;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--grafito);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.benefit-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--rojo-carmin); /* El icono del check en Rojo Carmín */
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.benefits-image-wrapper {
+    flex: 1; /* Toma la otra mitad del espacio */
+    display: flex;
+    justify-content: center;
+}
+
+/* --- ESPACIO PARA TU FOTO FUTURA --- */
+.placeholder-box {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 4/5; /* Proporción clásica para fotos de personas (vertical) */
+    background-color: #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.benefits-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Hasta que no subas la imagen a la carpeta, se verá gris por el placeholder */
+}
+
+/* Responsividad para Celulares */
+@media (max-width: 768px) {
+    .benefits-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .benefits-list li {
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+
+/* =========================================
+   BLOQUE 4: TIPS Y DESARROLLO PROFESIONAL
+   ========================================= */
+.tips-section {
+    background-color: white; /* Volvemos al blanco para contrastar con el gris anterior */
+    padding: 80px 20px;
+}
+
+.tips-container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.tips-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tips-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: var(--grafito);
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.tips-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #4A5568;
+}
+
+/* Grilla de 3 columnas */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* La tarjeta individual */
+.tip-card {
+    background: white;
+    border: 1px solid var(--borde-suave);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* Contenedor de la imagen y la etiqueta */
+.tip-img-box {
+    width: 100%;
+    height: 200px;
+    background-color: #E2E8F0; /* Fondo gris mientras cargan las fotos */
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tip-card:hover .tip-img {
+    transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+}
+
+/* Etiqueta flotante (Ej: "Currículum") */
+.tip-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--rojo-carmin);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+/* Contenido de texto */
+.tip-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Empuja el enlace "Leer más" al final */
+}
+
+.tip-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: var(--grafito);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.tip-card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ocupa el espacio vacío */
+}
+
+/* Enlace "Leer artículo" */
+.tip-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--rojo-carmin);
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.tip-link:hover {
+    color: #B91C1C;
+}
+
+.tip-arrow {
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+}
+
+.tip-link:hover .tip-arrow {
+    transform: translateX(5px); /* La flechita se mueve a la derecha */
+}
+
+/* =========================================
+   BLOQUE 5: FOOTER (PIE DE PÁGINA)
+   ========================================= */
+.habemus-footer {
+    background-color: var(--grafito);
+    color: white;
+    padding: 70px 20px 20px 20px;
+    font-family: 'Inter', sans-serif;
+    margin-top: auto; /* Empuja el footer siempre al fondo de la pantalla */
+}
+
+.footer-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* La primera columna es más ancha */
+    gap: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+}
+
+/* Columna de Marca */
+.footer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.footer-logo span {
+    color: var(--rojo-carmin);
+}
+
+.footer-description {
+    color: #A0AEC0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Columnas de Enlaces */
+.footer-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: white;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+}
+
+.footer-list a {
+    color: #A0AEC0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.footer-list a:hover {
+    color: var(--rojo-carmin);
+    transform: translateX(5px); /* Pequeño deslizamiento a la derecha al pasar el mouse */
+}
+
+/* Copyright inferior */
+.footer-bottom {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    color: #718096;
+    font-size: 0.85rem;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Todo en una sola columna hacia abajo */
+        text-align: center;
+    }
+    
+    .footer-description {
+        margin: 0 auto;
+    }
+}
+
+
+
