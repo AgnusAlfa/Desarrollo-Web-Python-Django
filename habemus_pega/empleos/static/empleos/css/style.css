@@ -245,3 +245,405 @@ body {
     .branding-logo { justify-content: center; display: flex; }
 }
 
+
+/* =========================================
+   3. PÁGINA DE LOGIN (DOS COLUMNAS)
+   ========================================= */
+.login-page-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px 20px 20px; 
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+.login-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px; 
+}
+
+/* --- Branding Izquierda --- */
+.login-col-left { flex: 1; max-width: 500px; }
+
+.branding-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.branding-logo .h-text { font-weight: 300; color: var(--grafito); }
+.branding-logo .p-text { font-weight: 800; color: var(--rojo-carmin); position: relative; }
+.branding-logo .p-text::after {
+    content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 6px; 
+    background: var(--rojo-carmin); border-radius: 3px; opacity: 0.2; transform: skewX(-25deg);
+}
+
+.branding-slogan { font-size: 1.5rem; color: var(--grafito); line-height: 1.3; margin-bottom: 5px; }
+.accent-text { color: var(--rojo-carmin); font-weight: bold; }
+
+.welcome-photo-container { width: 100%; margin-top: -15px; text-align: center; }
+.welcome-photo { width: 90%; max-width: 420px; height: auto; display: inline-block; }
+
+/* --- Formulario Derecha --- */
+.login-col-right { flex: 1; max-width: 450px; width: 100%; }
+
+.login-form-container {
+    background: white; padding: 40px; border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.login-form-container h2 { margin-top: 0; margin-bottom: 25px; font-size: 1.8rem; color: var(--grafito); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
+.form-group input {
+    width: 100%; padding: 12px; border: 1px solid var(--borde-suave);
+    border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif;
+    font-size: 1rem; transition: border-color 0.2s;
+}
+.form-group input:focus { outline: none; border-color: var(--rojo-carmin); }
+
+.btn-habemus-primary {
+    width: 100%; background-color: var(--rojo-carmin); color: white; border: none;
+    padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
+    cursor: pointer; transition: background-color 0.2s, transform 0.1s;
+}
+.btn-habemus-primary:hover { background-color: #B91C1C; transform: translateY(-2px); }
+
+.login-footer { margin-top: 25px; text-align: center; font-size: 0.9rem; }
+.login-footer a { color: var(--rojo-carmin); text-decoration: none; font-weight: 600; }
+
+/* =========================================
+   4. BLOQUE 1: HERO Y BUSCADOR (INICIO) - BLINDAJE TOTAL
+   ========================================= */
+.hero-section {
+    width: 100%;
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Título y Subtítulo confinados al centro */
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: var(--grafito); 
+    max-width: 580px; 
+    margin: 0 auto 10px auto; 
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #4A5568; 
+    max-width: 580px;
+    margin: 0 auto 35px auto;
+}
+
+/* Contenedor del Buscador */
+.search-box-container {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    max-width: 780px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* El Formulario Blindado (No salta de línea) */
+.habemus-search-form {
+    display: flex !important;
+    width: 100%;
+    align-items: center !important;
+    flex-direction: row !important; 
+    flex-wrap: nowrap !important; 
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.search-input-group {
+    flex: 1 1 0%; 
+    display: flex !important;
+    align-items: center !important;
+    padding: 6px 15px;
+    box-sizing: border-box;
+    min-width: 0; /* TRUCO VITAL */
+}
+
+.search-icon-vector {
+    font-size: 1rem;
+    margin-right: 10px;
+    color: var(--grafito);
+    opacity: 0.5;
+    flex-shrink: 0; 
+}
+
+.search-input {
+    border: none !important;
+    outline: none !important;
+    width: 100%;
+    min-width: 0; /* TRUCO VITAL */
+    font-size: 0.95rem;
+    color: var(--grafito);
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+    padding: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-input::placeholder {
+    color: #A0AEC0;
+    opacity: 1;
+}
+
+.search-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #E2E8F0;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+/* Botón Compacto */
+.btn-search-compact {
+    background: var(--rojo-carmin);
+    color: white;
+    border: none;
+    border-radius: 30px; 
+    padding: 10px 22px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap !important;
+    flex-shrink: 0; 
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-left: 5px;
+}
+
+.btn-search-compact:hover {
+    background-color: #B91C1C; 
+}
+
+
+
+/* =========================================
+   3. PÁGINA DE LOGIN (DOS COLUMNAS)
+   ========================================= */
+.login-page-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 20px 20px 20px; 
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+.login-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px; 
+}
+
+/* --- Branding Izquierda --- */
+.login-col-left { flex: 1; max-width: 500px; }
+
+.branding-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.branding-logo .h-text { font-weight: 300; color: var(--grafito); }
+.branding-logo .p-text { font-weight: 800; color: var(--rojo-carmin); position: relative; }
+.branding-logo .p-text::after {
+    content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 6px; 
+    background: var(--rojo-carmin); border-radius: 3px; opacity: 0.2; transform: skewX(-25deg);
+}
+
+.branding-slogan { font-size: 1.5rem; color: var(--grafito); line-height: 1.3; margin-bottom: 5px; }
+.accent-text { color: var(--rojo-carmin); font-weight: bold; }
+
+.welcome-photo-container { width: 100%; margin-top: -15px; text-align: center; }
+.welcome-photo { width: 90%; max-width: 420px; height: auto; display: inline-block; }
+
+/* --- Formulario Derecha --- */
+.login-col-right { flex: 1; max-width: 450px; width: 100%; }
+
+.login-form-container {
+    background: white; padding: 40px; border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.login-form-container h2 { margin-top: 0; margin-bottom: 25px; font-size: 1.8rem; color: var(--grafito); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
+.form-group input {
+    width: 100%; padding: 12px; border: 1px solid var(--borde-suave);
+    border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif;
+    font-size: 1rem; transition: border-color 0.2s;
+}
+.form-group input:focus { outline: none; border-color: var(--rojo-carmin); }
+
+.btn-habemus-primary {
+    width: 100%; background-color: var(--rojo-carmin); color: white; border: none;
+    padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
+    cursor: pointer; transition: background-color 0.2s, transform 0.1s;
+}
+.btn-habemus-primary:hover { background-color: #B91C1C; transform: translateY(-2px); }
+
+.login-footer { margin-top: 25px; text-align: center; font-size: 0.9rem; }
+.login-footer a { color: var(--rojo-carmin); text-decoration: none; font-weight: 600; }
+
+
+
+/* =========================================
+   BLOQUE 1: HERO Y BUSCADOR (INICIO) - VERSIÓN FINAL BLINDADA
+   ========================================= */
+.hero-section {
+    width: 100%;
+    height: 420px; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title-hp {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 2.2rem !important;
+    color: var(--grafito) !important; 
+    max-width: 650px; 
+    margin: 0 auto 10px auto !important; 
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+}
+
+.hero-subtitle-hp {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #4A5568 !important; 
+    margin: 0 auto 35px auto !important;
+}
+
+/* --- EL BUSCADOR TIPO PÍLDORA BLINDADO --- */
+.search-box-pilled {
+    background: white !important;
+    border-radius: 50px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; 
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 8px 8px 8px 15px !important; 
+}
+
+.search-form-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* Prohibe saltos de línea */
+    justify-content: space-between !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.input-group-hp {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    padding: 0 10px !important;
+}
+
+.hp-icon {
+    font-size: 1.2rem !important;
+    margin-right: 10px !important;
+    color: var(--grafito) !important;
+    opacity: 0.5 !important;
+}
+
+.hp-input {
+    border: none !important;
+    outline: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    color: var(--grafito) !important;
+    background: transparent !important;
+}
+
+.hp-input::placeholder { color: #A0AEC0 !important; }
+
+.search-divider-hp {
+    width: 1px !important;
+    height: 40px !important;
+    background-color: #E2E8F0 !important;
+    margin: 0 10px !important;
+}
+
+.btn-habemus-search {
+    background-color: var(--rojo-carmin) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 12px 30px !important; 
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', sans-serif !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    /* --- NUEVO: Centrado perfecto del ícono y texto --- */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important; /* Espacio entre la lupa y la palabra "Buscar" */
+}
+
+.btn-habemus-search:hover { background-color: #B91C1C !important; }

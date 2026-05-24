@@ -1,44 +1,53 @@
 {% extends 'empleos/base.html' %}
+{% load static %}
+
+{% block title %}Inicio | Habemus Pega{% endblock %}
 
 {% block content %}
-<div class="row mb-5 text-center py-5 rounded" style="background-color: white; border-top: 5px solid var(--rojo-carmin); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <div class="col-md-8 mx-auto">
-        <h1 class="display-5 fw-bold" style="color: var(--grafito);">¡Habemus Pega!</h1>
-        <p class="lead text-muted">Encuentra el empleo que encaja contigo o publica tu vacante hoy mismo.</p>
+<style>
+    .hero-bg-custom {
+        background-image: url("{% static 'empleos/images/hero_bg.png' %}");
+    }
+</style>
+
+<div class="hero-section hero-bg-custom">
+    <div class="hero-content">
+        <h1 class="hero-title-hp">Tu próxima gran oportunidad laboral empieza aquí</h1>
+        <p class="hero-subtitle-hp">Conectamos el mejor talento con las empresas líderes del país.</p>
         
-        <div class="input-group mt-4 shadow-sm">
-            <input type="text" class="form-control form-control-lg border-0 bg-light" placeholder="Cargo o categoría...">
-            <input type="text" class="form-control form-control-lg border-0 bg-light border-start" placeholder="Lugar (Ej. Santiago)">
-            <button class="btn btn-rojo px-4" type="button">Buscar Empleos</button>
-        </div>
-    </div>
-</div>
-
-<h3 class="mb-4 fw-bold" style="color: var(--grafito);">Nuevas Ofertas de Trabajo</h3>
-
-<div class="row">
-    {% for oferta in ofertas %}
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm border-0" style="border-left: 4px solid var(--grafito);">
-            <div class="card-body">
-                <h5 class="card-title fw-bold" style="color: var(--rojo-carmin);">{{ oferta.titulo }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">🏢 {{ oferta.empresa }}</h6>
-                <p class="card-text small text-secondary mt-3">{{ oferta.descripcion|truncatewords:20 }}</p>
-                <hr>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="badge bg-light text-dark border">📍 {{ oferta.ubicacion }}</span>
-                    <button class="btn btn-sm btn-outline-dark">Postular</button>
+        <div class="search-box-pilled">
+            <form action="#" method="GET" class="search-form-flex">
+                
+                <div class="input-group-hp" style="flex: 1.5;">
+                    <svg class="hp-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <input type="text" name="q" placeholder="Puesto, empresa o categoría" class="hp-input" required>
                 </div>
-            </div>
-            <div class="card-footer bg-white border-0 text-muted small text-end">
-                Publicado el {{ oferta.fecha_publicacion|date:"d M Y" }}
-            </div>
+
+                <div class="search-divider-hp"></div>
+
+                <div class="input-group-hp">
+                    <svg class="hp-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <input type="text" name="lugar" placeholder="Lugar (Ciudad o Región)" class="hp-input">
+                </div>
+
+                <button type="submit" class="btn-habemus-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Buscar
+                </button>
+            </form>
         </div>
     </div>
-    {% empty %}
-    <div class="col-12 text-center py-5">
-        <p class="text-muted fs-5">Aún no hay ofertas publicadas. ¡Sé el primero en publicar una!</p>
-    </div>
-    {% endfor %}
 </div>
 {% endblock %}
+
+
+
