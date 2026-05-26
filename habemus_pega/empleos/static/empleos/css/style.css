@@ -1109,4 +1109,101 @@ body {
 }
 
 
+/* =========================================
+   FORMULARIOS DE AUTENTICACIÓN (LOGIN/REGISTRO)
+   ========================================= */
+.auth-wrapper {
+    background-color: #F8FAFC; /* El mismo gris sutil de fondo */
+    min-height: calc(100vh - 70px - 300px); /* Ajuste perfecto entre navbar y footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.auth-card {
+    background: white;
+    border: 1px solid var(--borde-suave);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--grafito);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #718096;
+    line-height: 1.5;
+}
+
+/* Estilizado de los párrafos y inputs automáticos de Django */
+.form-fields-container p {
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--grafito);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-fields-container input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-fields-container input:focus {
+    outline: none;
+    border-color: var(--rojo-carmin);
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+/* Textos de ayuda que trae Django (ej: "Su contraseña no puede ser tan similar...") */
+.form-fields-container .helptext {
+    font-size: 0.8rem;
+    color: #A0AEC0;
+    line-height: 1.4;
+    margin-top: 4px;
+    display: block;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #4A5568;
+}
+
+.auth-link {
+    color: var(--rojo-carmin);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
 

@@ -1,0 +1,28 @@
+{% extends 'empleos/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2 class="auth-title">Crear Cuenta nueva</h2>
+            <p class="auth-subtitle">Regístrate en Habemus Pega y postula a miles de ofertas laborales hoy mismo.</p>
+        </div>
+
+        <form method="POST" class="auth-form no-shortcuts">
+            {% csrf_token %} <div class="form-fields-container">
+                {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="btn-habemus-search" style="width: 100%; margin-top: 25px;">
+                Registrarme e iniciar
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}" class="auth-link">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

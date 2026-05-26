@@ -29,15 +29,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-]
-
+# LIMPIEZA: Se dejó un solo bloque de INSTALLED_APPS que incluye 'empleos'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -63,7 +55,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # MODIFICACIÓN CLAVE: Instrucción para que Django lea tu carpeta "templates" global
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -136,11 +129,7 @@ LOGIN_URL = 'login'
 
 
 # Permiso para los formularios en GitHub Codespaces
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.github.dev',
-    'https://*.app.github.dev',
-]
-
+# LIMPIEZA: Se dejó un solo bloque de seguridad más completo
 CSRF_TRUSTED_ORIGINS = [
     'https://*.github.dev',
     'https://*.app.github.dev',

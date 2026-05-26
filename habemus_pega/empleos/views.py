@@ -1,15 +1,52 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login as auth_login
+from django.contrib import messages
+
 from .models import OfertaTrabajo
 from .forms import ContactoForm
 
-# Vista de la página principal (Dashboard)
+# 1. VISTA DE LOGIN
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            usuario = form.get_user()
+            auth_login(request, usuario) # Inicia la sesión del usuario
+            return redirect('inicio')    # Lo manda al dashboard
+    else:
+        form = AuthenticationForm()
+    
+    # MODIFICADO: Ahora respeta tu estructura y apunta a 'registration/login.html'
+    return render(request, 'registration/login.html', {'form': form})
+
+
+# 2. VISTA DE REGISTRO
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():  
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'¡Cuenta creada exitosamente para {username}! Ya puedes iniciar sesión.')
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+        
+    # MODIFICADO: Ahora respeta tu estructura y apunta a 'registration/registro.html'
+    return render(request, 'registration/registro.html', {'form': form})
+
+
+# 3. VISTA DE LA PÁGINA PRINCIPAL (Dashboard)
 @login_required
 def inicio(request):
     ofertas = OfertaTrabajo.objects.all().order_by('-fecha_publicacion')
+    # Mantiene su ruta original, que está correcta en tu estructura
     return render(request, 'empleos/inicio.html', {'ofertas': ofertas})
 
-# Vista del formulario de contacto avanzado
+
+# 4. VISTA DE CONTACTO
 @login_required
 def contacto(request):
     if request.method == 'POST':
@@ -20,5 +57,5 @@ def contacto(request):
     else:
         form = ContactoForm()
     
+    # Mantiene su ruta original, que está correcta en tu estructura
     return render(request, 'empleos/contacto.html', {'form': form})
-
