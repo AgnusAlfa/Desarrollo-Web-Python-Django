@@ -1,16 +1,16 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    # Ruta para la página principal
     path('', views.inicio, name='inicio'),
+    path('explorar/', views.explorar_empleos, name='explorar'),
     
-    # Ruta para el formulario de contacto
+    # NUEVA RUTA PARA PUBLICAR
+    path('publicar/', views.publicar_aviso, name='publicar'),
+    
     path('contacto/', views.contacto, name='contacto'),
-    
-    # Ruta para iniciar sesión
     path('login/', views.login_view, name='login'),
-    
-    # Ruta para registrar usuarios nuevos
     path('registro/', views.registro, name='registro'),
 ]
+

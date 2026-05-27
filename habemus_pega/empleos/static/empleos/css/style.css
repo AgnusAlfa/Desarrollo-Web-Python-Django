@@ -1232,3 +1232,216 @@ body {
 .contenedor-registro button {
     margin-bottom: 10px; /* Reducimos el margen inferior si es necesario */
 }
+
+
+
+
+/* =========================================
+   SECCIÓN DE AVISOS DE TRABAJO (INICIO)
+   ========================================= */
+
+/* 1. Damos un "colchón" a la sección para que las tarjetas no se salgan por abajo */
+.jobs-section {
+    padding-bottom: 80px; 
+}
+
+/* 2. Contenedor de la grilla para los avisos */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+/* 3. Tarjeta principal: Adaptable al contenido y con transición preparada */
+.job-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 25px; /* Espacio interno para que el texto respire */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Toma toda la altura disponible */
+    box-sizing: border-box; /* Evita que el padding deforme la caja */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prepara la animación */
+}
+
+/* 4. Efecto hover: Hace que la tarjeta "flote" hacia arriba al pasar el mouse */
+.job-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* 5. Botón de la tarjeta: Centrado, ajustado y empujado hacia abajo */
+.job-card .btn-habemus-secondary {
+    margin-top: auto; /* Lo empuja al final de la tarjeta */
+    width: fit-content; /* Solo medirá lo que mida su texto */
+    align-self: center; /* Lo centra horizontalmente */
+    padding: 10px 24px;
+}
+
+
+
+
+/* =========================================
+   PÁGINA EXPLORAR EMPLEOS (LISTA HORIZONTAL)
+   ========================================= */
+
+/* Hero Minimalista */
+.minimal-hero {
+    background-color: #e2e8f0; /* Un gris/azulado muy elegante, sin foto */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Contenedor central de la lista */
+.jobs-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px; /* Limita el ancho para que la lectura sea cómoda */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Tarjeta Horizontal (Flexbox) */
+.job-list-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between; /* Separa izquierda y derecha */
+    align-items: center;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.job-list-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #cbd5e1;
+    transform: translateX(4px); /* Pequeño efecto de moverse a la derecha */
+}
+
+/* Izquierda: Info principal */
+.job-list-main {
+    flex: 1; /* Toma todo el espacio sobrante */
+    padding-right: 30px;
+}
+
+.job-list-title {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.job-list-company {
+    font-size: 0.95rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.job-list-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Derecha: Metadatos y Botón */
+.job-list-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 180px;
+    gap: 12px;
+}
+
+.job-list-salary {
+    color: #2e7d32;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.job-list-date {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* RESPONSIVE: Adaptación para Celulares */
+@media (max-width: 768px) {
+    .job-list-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .job-list-main {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .job-list-meta {
+        align-items: flex-start;
+        width: 100%;
+    }
+    .job-list-meta .btn-habemus-secondary {
+        width: 100%; /* Botón ocupa todo el ancho en celular */
+        text-align: center;
+    }
+}
+
+
+
+/* Fondo oscuro translúcido */
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caja blanca del modal */
+.modal-content {
+    background: white;
+    padding: 20px; /* Reducido para hacerlo más compacto */
+    border-radius: 12px;
+    max-width: 350px; /* Reducido para hacerlo más chico */
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    
+    /* Centrado de elementos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Texto más pequeño */
+.modal-content p {
+    font-size: 0.9rem;
+}
+
+/* Botón más chico (Prioridad forzada para que respete el tamaño) */
+#registroModal .btn-habemus-primary {
+    padding: 8px 20px !important;
+    font-size: 0.9rem !important;
+    margin-top: 15px !important;
+    width: auto !important;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px; right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+}
+
+
+
+
+
+

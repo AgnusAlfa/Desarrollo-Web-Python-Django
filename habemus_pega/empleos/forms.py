@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import MensajeContacto
+from .models import MensajeContacto, OfertaTrabajo
 
 class ContactoForm(forms.ModelForm):
     class Meta:
@@ -37,3 +38,15 @@ class RegistroForm(UserCreationForm):
         self.fields['password2'].label = "Confirmar Contraseña"
         
 
+class OfertaForm(forms.ModelForm):
+    class Meta:
+        model = OfertaTrabajo
+        # Excluimos fecha_publicacion porque es automática (auto_now_add)
+        exclude = ['fecha_publicacion'] 
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Desarrollador Python'}),
+            'empresa': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de la empresa'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Descripción detallada...'}),
+            'ubicacion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ciudad, País'}),
+            'salario': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. $1.000.000'}),
+        }

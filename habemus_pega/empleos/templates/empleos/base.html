@@ -18,18 +18,24 @@
             </a>
 
             <div class="nav-links">
+                <a href="javascript:void(0);" onclick="showModal()" class="nav-item">
+                    Explorar Pegas
+                </a>
+
                 {% if user.is_authenticated %}
-                <span class="nav-item" style="font-weight: 400; color: #666;">Hola, <strong>{{ user.username
-                        }}</strong></span>
+                <span class="nav-item" style="font-weight: 400; color: #666;">
+                    Hola, <strong>{{ user.username }}</strong>
+                </span>
                 <a href="{% url 'contacto' %}" class="nav-item btn-nav-outline">Publicar Aviso</a>
                 <form method="post" action="{% url 'logout' %}" style="display:inline; margin:0;">
                     {% csrf_token %}
-                    <button type="submit" class="nav-item btn-nav-red"
-                        style="border:none; cursor:pointer;">Salir</button>
+                    <button type="submit" class="nav-item btn-nav-red" style="border:none; cursor:pointer;">
+                        Salir
+                    </button>
                 </form>
                 {% else %}
                 <a href="{% url 'login' %}" class="nav-item">Iniciar sesión</a>
-                <a href="#" class="nav-item btn-nav-outline">Unirse ahora</a>
+                <a href="{% url 'registro' %}" class="nav-item btn-nav-outline">Unirse ahora</a>
                 {% endif %}
             </div>
         </div>
@@ -51,7 +57,7 @@
                 <div class="footer-links-col">
                     <h4 class="footer-title">Candidatos</h4>
                     <ul class="footer-list">
-                        <li><a href="#">Buscar Empleos</a></li>
+                        <li><a href="{% url 'explorar' %}">Buscar Empleos</a></li>
                         <li><a href="#">Crear mi CV</a></li>
                         <li><a href="#">Alertas de Trabajo</a></li>
                         <li><a href="#">Blog y Consejos</a></li>
@@ -85,5 +91,5 @@
         </footer>
 
 </body>
-</html>
 
+</html>

@@ -63,4 +63,34 @@
 
     </div>
 </div>
+
+<div id="registroModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3>¡Únete a Habemus Pega!</h3>
+        <p>Para explorar todas nuestras oportunidades laborales y encontrar tu trabajo ideal, primero debes crear una cuenta.</p>
+        <a href="{% url 'registro' %}" class="btn-habemus-primary" style="display: block; text-align: center; margin-top: 20px;">
+            Crear mi cuenta
+        </a>
+    </div>
+</div>
+
+<script>
+    function showModal() {
+        document.getElementById('registroModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('registroModal').style.display = 'none';
+    }
+
+    // Cierra el modal si hacen clic fuera de la caja blanca
+    window.onclick = function(event) {
+        let modal = document.getElementById('registroModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
 {% endblock %}
