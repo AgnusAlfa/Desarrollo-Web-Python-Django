@@ -1207,3 +1207,28 @@ body {
 }
 
 
+
+.contenedor-registro {
+    /* Limitamos el tamaño para que sea manejable */
+    max-width: 500px; 
+    width: 90%; /* Responsivo en móviles */
+    
+    /* El truco para que no se corte: */
+    max-height: 90vh; 
+    overflow-y: auto; /* Scroll interno si el contenido supera la altura */
+    
+    /* Mejoramos el espacio interno */
+    padding: 20px; 
+    margin: 20px auto; /* Centrado horizontal */
+    
+    /* Buenas prácticas */
+    box-sizing: border-box; /* Importante para que el padding no expanda el div */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Ajuste adicional para los inputs y el botón */
+.contenedor-registro input, 
+.contenedor-registro button {
+    margin-bottom: 10px; /* Reducimos el margen inferior si es necesario */
+}

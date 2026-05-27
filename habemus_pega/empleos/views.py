@@ -5,7 +5,8 @@ from django.contrib.auth import login as auth_login
 from django.contrib import messages
 
 from .models import OfertaTrabajo
-from .forms import ContactoForm
+from .forms import ContactoForm, RegistroForm
+
 
 # 1. VISTA DE LOGIN
 def login_view(request):
@@ -25,16 +26,12 @@ def login_view(request):
 # 2. VISTA DE REGISTRO
 def registro(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():  
+        form = RegistroForm(request.POST)
+        if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'¡Cuenta creada exitosamente para {username}! Ya puedes iniciar sesión.')
             return redirect('login')
     else:
-        form = UserCreationForm()
-        
-    # MODIFICADO: Ahora respeta tu estructura y apunta a 'registration/registro.html'
+        form = RegistroForm()
     return render(request, 'registration/registro.html', {'form': form})
 
 

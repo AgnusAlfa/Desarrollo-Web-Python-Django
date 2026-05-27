@@ -10,12 +10,25 @@
         </div>
 
         <form method="POST" class="auth-form no-shortcuts">
-            {% csrf_token %} <div class="form-fields-container">
-                {{ form.as_p }}
+            {% csrf_token %}
+            
+            <div class="form-fields-container">
+                {% for field in form %}
+                    <p>
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        
+                        {% if field.errors %}
+                            <div class="error-list" style="color: var(--rojo-carmin); font-size: 0.8rem; margin-top: 5px;">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </p>
+                {% endfor %}
             </div>
 
             <button type="submit" class="btn-habemus-search" style="width: 100%; margin-top: 25px;">
-                Registrarme e iniciar
+                Registrarme
             </button>
         </form>
 

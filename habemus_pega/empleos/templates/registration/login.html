@@ -6,19 +6,20 @@
 {% block content %}
 <div class="login-page-container">
     <div class="login-row">
-        
+
         <div class="login-col-left">
             <div class="branding-content">
                 <h1 class="branding-logo">
                     <span class="h-text">Habemus</span><span class="p-text">Pega</span>
                 </h1>
                 <p class="branding-slogan">
-                    Explora las oportunidades laborales que <span class="accent-text">más te apasionan</span>. 
+                    Explora las oportunidades laborales que <span class="accent-text">más te apasionan</span>.
                     Únete a la comunidad líder de talentos.
                 </p>
-                
+
                 <div class="welcome-photo-container">
-                    <img src="{% static 'empleos/images/login1.png' %}" alt="Bienvenido a Habemus Pega" class="welcome-photo">
+                    <img src="{% static 'empleos/images/login1.png' %}" alt="Bienvenido a Habemus Pega"
+                        class="welcome-photo">
                 </div>
             </div>
         </div>
@@ -27,15 +28,15 @@
             <div class="login-card-floating">
                 <form method="post" class="habemus-form">
                     {% csrf_token %}
-                    
+
                     <h2 class="form-title">Iniciar sesión en Habemus Pega</h2>
-                    
+
                     <div class="form-body">
-                        
+
                         {% if form.errors %}
-                            <p style="color: var(--rojo-carmin); font-size: 0.9rem; text-align: center; font-weight: bold;">
-                                Usuario o contraseña incorrectos.
-                            </p>
+                        <p style="color: var(--rojo-carmin); font-size: 0.9rem; text-align: center; font-weight: bold;">
+                            Usuario o contraseña incorrectos.
+                        </p>
                         {% endif %}
 
                         <p>
@@ -44,15 +45,15 @@
                         <p>
                             <input type="password" name="password" id="id_password" placeholder="Contraseña" required>
                         </p>
-                        
+
                         <button type="submit" class="btn-habemus-primary">Iniciar sesión</button>
-                        
+
                         <a href="#" class="forgot-link">¿Has olvidado la contraseña?</a>
-                        
+
                         <div class="form-divider"></div>
-                        
+
                         <div class="form-footer">
-                            <a href="#" class="btn-habemus-outline">Crear una cuenta nueva</a>
+                            <a href="{% url 'registro' %}" class="btn-habemus-outline">Crear una cuenta nueva</a>
                         </div>
                     </div>
                 </form>
